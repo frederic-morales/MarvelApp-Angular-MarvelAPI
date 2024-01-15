@@ -1,15 +1,15 @@
-<div class="main">
-    <div class="carousel-container">
-        <div class="carousel-wrapper">
-            @for (image of images; track $index) {
-                <div class="carousel-slide">
-                    <img [src]="image" alt="">
-                </div>
-            }
-        </div>
-        <div class="buttons-container">
-            <div class="button" (click)="prevSlide()"></div>
-            <div class="button" (click)="nextSlide()"></div>
-        </div>
+<div>
+  <div>
+    <div>
+      @for (image of images; track $index) {
+      <div>
+        <img [src]="image" alt="" />
+      </div>
+      }
     </div>
+    <div>
+      <div (click)="prevSlide()"></div>
+      <div (click)="nextSlide()"></div>
+    </div>
+  </div>
 </div>
