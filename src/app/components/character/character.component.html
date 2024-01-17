@@ -1,0 +1,27 @@
+<style>
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+<div
+  class="bg-white w-72 shadow-lg rounded-md hover:bg-zinc-600 duration-500 hover:text-rose-50 mb-"
+>
+  <h2 class="font-bold text-xl p-3">{{ character.name }}</h2>
+  <div class="h-48">
+    <img
+      class="w-full h-full object-cover"
+      [src]="character.image"
+      [alt]="character.name"
+    />
+  </div>
+  <div class="w-full pb-3">
+    <p class="pl-3 pt-3 text-sm font-semibold sm:pb-3">
+      {{ character.dateCreation }}
+    </p>
+    <div class="px-3 sm:h-40 hidden sm:block text-ellipsis overflow-auto">
+      <p class="leading-5">
+        {{ character.info }}
+      </p>
+    </div>
+  </div>
+</div>
