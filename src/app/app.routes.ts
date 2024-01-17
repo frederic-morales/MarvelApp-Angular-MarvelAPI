@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
 import { CarrouselComponent } from './components/carrousel/carrousel.component';
+import { LayoutComponent } from './shared/layout/layout.component';
 
 export const routes: Routes = [
-    {
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
         path: '',
-        component: HeaderComponent
-    },
-    {
-        path: 'carrousel',
-        component: CarrouselComponent
-    }
+        component: CarrouselComponent,
+      },
+    ],
+  },
 ];

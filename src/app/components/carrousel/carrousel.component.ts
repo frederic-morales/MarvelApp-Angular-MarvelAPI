@@ -1,34 +1,62 @@
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Character } from '../../shared/models/character.module';
 
 @Component({
   selector: 'app-carrousel',
   standalone: true,
   imports: [NgFor],
   templateUrl: './carrousel.component.html',
-  styleUrl: './carrousel.component.css'
+  styleUrl: './carrousel.component.css',
 })
 export class CarrouselComponent {
-  images: string[] = [
-    'https://is1-ssl.mzstatic.com/image/thumb/ZypiNEdbU0wwCF0GMJ3zoA/1200x675mf.jpg', 
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfLLLJrHPKlgd5WsVv2sU-DgCDMg-Ry_K_BQ&usqp=CAU', 
-    'https://es.web.img3.acsta.net/r_654_368/newsv7/20/05/07/12/52/3980724.jpg', 
-    'Item 4', 
-    'Item 5'
+  characters = <Character[]>[
+    {
+      id: 1,
+      name: 'Spider Man',
+      image: 'https://img2.rtve.es/i/?w=1600&i=1442912664626.jpg',
+      dateCreation: '16 01 2024',
+      info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam',
+    },
+    {
+      id: 2,
+      name: 'Hulk',
+      image:
+        'https://www.metroworldnews.com/resizer/5iqVNiSBaB_buM7MXkltFNs8rnI=/1440x810/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/4FNDZKASM5G6FNIEB5FFZN5NRM.jpg',
+      dateCreation: '16 01 2024',
+      info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam',
+    },
+    {
+      id: 2,
+      name: 'Iron Man',
+      image:
+        'https://www.mundodeportivo.com/alfabeta/hero/2022/10/image-14.1664995292.6726.jpg?width=768&aspect_ratio=16:9&format=nowebp',
+      dateCreation: '16 01 2024',
+      info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    },
+    {
+      id: 2,
+      name: 'Iron Man',
+      image:
+        'https://www.mundodeportivo.com/alfabeta/hero/2022/10/image-14.1664995292.6726.jpg?width=768&aspect_ratio=16:9&format=nowebp',
+      dateCreation: '16 01 2024',
+      info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    },
+    {
+      id: 2,
+      name: 'Iron Man',
+      image:
+        'https://www.mundodeportivo.com/alfabeta/hero/2022/10/image-14.1664995292.6726.jpg?width=768&aspect_ratio=16:9&format=nowebp',
+      dateCreation: '16 01 2024',
+      info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    },
+    {
+      id: 2,
+      name: 'Iron Man',
+      image:
+        'https://www.mundodeportivo.com/alfabeta/hero/2022/10/image-14.1664995292.6726.jpg?width=768&aspect_ratio=16:9&format=nowebp',
+      dateCreation: '16 01 2024',
+      info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
+    },
   ];
-
-  nextSlide() {
-    const wrapper = document.querySelector('.carousel-wrapper');
-    if (wrapper) {
-      wrapper.scrollLeft += wrapper.clientWidth;
-    }
-  }
-  
-  prevSlide() {
-    const wrapper = document.querySelector('.carousel-wrapper');
-    if (wrapper) {
-      wrapper.scrollLeft -= wrapper.clientWidth;
-    }
-  }
-
 }

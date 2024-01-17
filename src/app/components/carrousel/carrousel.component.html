@@ -1,15 +1,33 @@
-<div>
-  <div>
-    <div>
-      @for (image of images; track $index) {
-      <div>
-        <img [src]="image" alt="" />
-      </div>
-      }
+<style>
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+<div
+  class="flex items-center flex-col space-y-4 my-7 sm:flex-row sm:flex-wrap sm:gap-4 sm:space-y-0 sm:justify-center max-w-7xl mx-auto"
+>
+  @for(character of characters; track $index){
+  <div
+    class="bg-white w-72 shadow-lg rounded-md hover:bg-zinc-600 duration-500 hover:text-rose-50"
+  >
+    <h2 class="font-bold text-xl p-3">{{ character.name }}</h2>
+    <div class="h-48">
+      <img
+        class="w-full h-full object-cover"
+        [src]="character.image"
+        [alt]="character.name"
+      />
     </div>
-    <div>
-      <div (click)="prevSlide()"></div>
-      <div (click)="nextSlide()"></div>
+    <div class="w-full pb-3">
+      <p class="pl-3 py-3 text-sm font-semibold">
+        {{ character.dateCreation }}
+      </p>
+      <div class="px-3 sm:h-40 hidden sm:block text-ellipsis overflow-auto">
+        <p class="leading-5">
+          {{ character.info }}
+        </p>
+      </div>
     </div>
   </div>
+  }
 </div>
