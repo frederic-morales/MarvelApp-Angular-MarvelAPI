@@ -1,7 +1,8 @@
 import { NgFor } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
 import { Character } from '../../shared/models/character.module';
+import { ApiRequestService } from '../../shared/services/api-request.service';
 
 @Component({
   selector: 'app-carrousel',
@@ -44,4 +45,21 @@ export class CarrouselComponent {
       info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
     },
   ];
+
+  ngOnInit() {
+    this.getComics();
+  }
+
+  comics = signal<Object>({});
+
+  private requestService = inject(ApiRequestService);
+
+  private getComics() {
+    this.requestService.getComics().subscribe({
+      next: (comic) => {
+        this.comics.set(comic);
+        console.log(this.comics());
+      },
+    });
+  }
 }
