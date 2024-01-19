@@ -3,6 +3,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
 import { Character } from '../../shared/models/character.module';
 import { ApiRequestService } from '../../shared/services/api-request.service';
+import { Characters } from '../../shared/models/structurApiCharacter.module';
 
 @Component({
   selector: 'app-carrousel',
