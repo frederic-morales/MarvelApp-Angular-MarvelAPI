@@ -49,18 +49,42 @@ export class CarrouselComponent {
 
   ngOnInit() {
     this.getComics();
+    this.getCharacterInfo();
   }
 
-  comics = signal<Object>({});
+  apiResp: any;
+  data: any;
+  results: any;
 
   private requestService = inject(ApiRequestService);
 
   private getComics() {
-    this.requestService.getComics().subscribe({
+    this.requestService.getCharacters().subscribe({
       next: (comic) => {
-        this.comics.set(comic);
-        console.log(this.comics());
+        this.apiResp = comic;
+        this.data = this.apiResp.data;
+        this.results = this.data.results; // results nos trae todos los personajes de marvel
+        this.showResults(this.results);
       },
     });
+  }
+
+  private getCharacterInfo() {
+    this.requestService.getCharacterInfo().subscribe({
+      next: (character) => {
+        this.apiResp = character;
+        this.data = this.apiResp.data;
+        this.results = this.data.results;
+        console.log(this.results[0]);
+      },
+    });
+  }
+
+  ids: number[] = [];
+
+  showResults(result: object) {
+    console.log(result);
+
+    this.ids.push(Object.entries(result)[9][1].id);
   }
 }
