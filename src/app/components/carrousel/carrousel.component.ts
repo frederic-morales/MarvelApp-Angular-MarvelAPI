@@ -14,7 +14,7 @@ import { Characters } from '../../shared/models/structurApiCharacter.module';
 })
 export class CarrouselComponent {
   characters = <Character[]>[
-    {
+    /*{
       id: 1,
       name: 'Spider Man',
       image: 'https://img2.rtve.es/i/?w=1600&i=1442912664626.jpg',
@@ -44,32 +44,29 @@ export class CarrouselComponent {
         'https://www.mundodeportivo.com/alfabeta/hero/2022/10/image-14.1664995292.6726.jpg?width=768&aspect_ratio=16:9&format=nowebp',
       dateCreation: '16 01 2024',
       info: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga dolores molestias dignissimos nam adipisicing elit. Fuga dolores   molestias dignissimos nam Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-    },
+    },*/
   ];
 
   ngOnInit() {
     this.getComics();
-    this.getCharacterInfo();
   }
 
   apiResp: any;
-  data: any;
   results: any;
 
   private requestService = inject(ApiRequestService);
 
   private getComics() {
-    this.requestService.getCharacters().subscribe({
-      next: (comic) => {
-        this.apiResp = comic;
-        this.data = this.apiResp.data;
-        this.results = this.data.results; // results nos trae todos los personajes de marvel
-        this.showResults(this.results);
-      },
+    this.requestService.getCharacters().subscribe((resp) => {
+      this.apiResp = resp;
+      const data = this.apiResp.data;
+      const characters = data.results;
+      this.characters.push = characters[0];
+      console.log(this.characters);
     });
   }
 
-  private getCharacterInfo() {
+  /*private getCharacterInfo() {
     this.requestService.getCharacterInfo().subscribe({
       next: (character) => {
         this.apiResp = character;
@@ -78,7 +75,7 @@ export class CarrouselComponent {
         console.log(this.results[0]);
       },
     });
-  }
+  }*/
 
   ids: number[] = [];
 

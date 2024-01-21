@@ -10,10 +10,8 @@ export class ApiRequestService {
 
   constructor() {}
 
-  md5 = new Md5();
-
   getCharacters() {
-    const url = new URL('http://gateway.marvel.com/v1/public/characters');
+    const url = new URL('http://gateway.marvel.com/v1/public/comics');
     const now = new Date();
     const timestamp = now.getTime();
     const timestampInSeconds = Math.floor(timestamp / 1000);
