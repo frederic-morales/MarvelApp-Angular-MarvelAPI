@@ -58,14 +58,26 @@ export class CarrouselComponent {
 
   private requestService = inject(ApiRequestService);
 
+  /*heroesIds: {} = {
+    captianAmerica: 1009220,
+    ironMan: 1009368,
+    hulk: 1009351,
+    spiderMan: 1009610,
+  };*/
+
+  heroes: number[] = [1009220, 1009351, 1009368, 1009610];
+
   private getComics() {
-    this.requestService.getCharacters().subscribe((resp) => {
-      this.apiResp = resp;
-      const data = this.apiResp.data;
-      const characters = data.results;
-      this.characters.set(characters);
-      console.log(this.characters());
-    });
+    for (let i = 0; i < this.heroes.length; i++) {
+      this.requestService.getCharacters(this.heroes[i]).subscribe((resp) => {
+        //console.log(this.characters());
+        this.apiResp = resp;
+        const data = this.apiResp.data;
+        const character = data.results;
+        this.characters.update((value) => [...value, character[0]]);
+        console.log(this.characters());
+      });
+    }
   }
 
   /*private getCharacterInfo() {
@@ -78,12 +90,4 @@ export class CarrouselComponent {
       },
     });
   }*/
-
-  ids: number[] = [];
-
-  showResults(result: object) {
-    console.log(result);
-
-    this.ids.push(Object.entries(result)[9][1].id);
-  }
 }
