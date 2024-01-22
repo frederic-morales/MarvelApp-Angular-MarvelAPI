@@ -1,7 +1,9 @@
 export interface Character {
   id: number;
   name: string;
-  image: string;
+  thumbnail: {
+    path: string;
+  };
   dateCreation: string;
-  info: string;
+  description: string;
 }

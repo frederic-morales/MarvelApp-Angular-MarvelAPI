@@ -11,7 +11,9 @@ export class ApiRequestService {
   constructor() {}
 
   getCharacters() {
-    const url = new URL('http://gateway.marvel.com/v1/public/comics');
+    const url = new URL(
+      'http://gateway.marvel.com/v1/public/characters?limit=10&offset=200'
+    );
     const now = new Date();
     const timestamp = now.getTime();
     const timestampInSeconds = Math.floor(timestamp / 1000);

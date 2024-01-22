@@ -12,5 +12,5 @@ import { NgFor } from '@angular/common';
 export class CharacterComponent {
 
   @Input({ required: true }) message!: string;
-  @Input({ required: true }) character!: Character;
+  @Input({ required: true }) character!: Character; 
 }

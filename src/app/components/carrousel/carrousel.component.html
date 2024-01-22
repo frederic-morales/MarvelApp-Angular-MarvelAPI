@@ -2,7 +2,7 @@
   <div
     class="flex justify-center sm:flex-row flex-wrap gap-4 max-w-7xl lg:px-9 lg:gap-x-28 xl:px-4 xl:gap-x-8 mt-5 md:gap-x-20"
   >
-    @for(character of characters; track $index){
+    @for(character of characters(); track $index){
     <app-character [message]="'Hola'" [character]="character" />
     }
   </div>
