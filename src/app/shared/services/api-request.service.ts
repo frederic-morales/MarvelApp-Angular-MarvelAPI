@@ -10,9 +10,17 @@ export class ApiRequestService {
 
   constructor() {}
 
+  capAmerica: number = 1009220;
+  ironMan: number = 1009368;
+  hulk: number = 1009351;
+  spiderMan: number = 1009610;
+
+  url: string =
+    'http://gateway.marvel.com/v1/public/characters?limit=50&offset=500';
+
   getCharacters() {
     const url = new URL(
-      'http://gateway.marvel.com/v1/public/characters?limit=10&offset=200'
+      'http://gateway.marvel.com/v1/public/characters?limit=100&offset=1225'
     );
     const now = new Date();
     const timestamp = now.getTime();
