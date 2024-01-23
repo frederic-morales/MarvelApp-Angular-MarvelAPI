@@ -5,6 +5,6 @@ export interface Character {
     extension: string;
     path: string;
   };
-  dateCreation: string;
+  modified: Date;
   description: string;
 }

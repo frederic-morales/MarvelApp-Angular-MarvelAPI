@@ -10,9 +10,6 @@ export class ApiRequestService {
 
   constructor() {}
 
-  url: string =
-    'http://gateway.marvel.com/v1/public/characters?limit=50&offset=500';
-
   getCharacters(id: number) {
     const url = new URL(
       `http://gateway.marvel.com/v1/public/characters/${id.toString()}`
@@ -32,9 +29,9 @@ export class ApiRequestService {
     });
   }
 
-  getCharacterInfo() {
+  getCharacterComics(id: number) {
     const url = new URL(
-      'http://gateway.marvel.com/v1/public/characters/1011136'
+      `http://gateway.marvel.com/v1/public/characters/${id.toString()}/comics`
     );
     const now = new Date();
     const timestamp = now.getTime();
