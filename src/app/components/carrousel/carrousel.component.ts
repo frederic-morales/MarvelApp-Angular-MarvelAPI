@@ -3,11 +3,12 @@ import { Component, inject, signal } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
 import { ApiRequestService } from '../../shared/services/api-request.service';
 import { HeroesIds } from '../../shared/models/heroesIds.module';
+import { CharacterInfoComponent } from '../character-info/character-info.component';
 
 @Component({
   selector: 'app-carrousel',
   standalone: true,
-  imports: [NgFor, CharacterComponent],
+  imports: [NgFor, CharacterComponent, CharacterInfoComponent],
   templateUrl: './carrousel.component.html',
   styleUrl: './carrousel.component.css',
 })

@@ -33,7 +33,10 @@
   <div
     class="absolute bottom-[-12px] mx-auto left-0 right-0 flex items-end justify-center sm:bottom-[-14px] text-orange-500"
   >
-    <div class="hover:cursor-pointer bg-stone-800 rounded-[50%]">
+    <button
+      class="hover:cursor-pointer bg-stone-800 rounded-[50%]"
+      (click)="showCharacterInfo()"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -46,6 +49,6 @@
           clip-rule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
 </div>
