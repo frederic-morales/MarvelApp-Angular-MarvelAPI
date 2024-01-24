@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Character } from '../../shared/models/character.module';
+import { CharacterComics } from '../../shared/models/character-comics.module';
 import { NgFor } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { CharacterInfoComponent } from '../character-info/character-info.component';
@@ -14,10 +15,4 @@ import { CharacterInfoComponent } from '../character-info/character-info.compone
 export class CharacterComponent {
   @Input({ required: true }) message!: string;
   @Input({ required: true }) character!: Character;
-
-  characterInfo = document.getElementById('characterInfo');
-
-  showCharacterInfo() {
-    this.characterInfo?.classList.toggle('hidden');
-  }
 }

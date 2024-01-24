@@ -1,4 +1,8 @@
 export interface CharacterComics {
   available: number;
-  items: [];
+  items: [
+    {
+      name: string; 
+    }
+  ];
 }

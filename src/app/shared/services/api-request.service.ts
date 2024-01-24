@@ -33,10 +33,10 @@ export class ApiRequestService {
     const url = new URL(
       `http://gateway.marvel.com/v1/public/characters/${id.toString()}/comics`
     );
-    const now = new Date();
+    /*const now = new Date();
     const timestamp = now.getTime();
     const timestampInSeconds = Math.floor(timestamp / 1000);
-    console.log(timestampInSeconds);
+    console.log(timestampInSeconds);*/
 
     return this.http.get(url.toString(), {
       params: {

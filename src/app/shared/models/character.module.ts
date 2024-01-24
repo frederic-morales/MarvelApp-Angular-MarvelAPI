@@ -1,7 +1,4 @@
-import { CharacterComics } from './character-comics.module';
-
 export interface Character {
-  comics: CharacterComics;
   id: number;
   name: string;
   thumbnail: {
