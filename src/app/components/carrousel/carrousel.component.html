@@ -4,6 +4,7 @@
   >
     @for(character of characters(); track $index){
     <app-character [message]="'Hola'" [character]="character" />
+    <app-character-info [comicsArray]="charactersComics()[$index]" />
     }
   </div>
 </div>

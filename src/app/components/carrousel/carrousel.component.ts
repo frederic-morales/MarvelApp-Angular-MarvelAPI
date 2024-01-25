@@ -14,11 +14,16 @@ import { CharacterInfoComponent } from '../character-info/character-info.compone
 })
 export class CarrouselComponent {
   ngOnInit() {
+    this.getCharactersComics();
     this.getCharacters();
-    //this.getCharactersComics();
   }
 
-  heroes = HeroesIds; // Id de cada personaje a renderizar
+  heroes = [
+    1009610, //spiderMan
+    1009351, //hulk:
+    1009368, //IronMan:
+    1009220, //CaptianAmerica:
+  ]; // Id de cada personaje a renderizar
   apiResp: any;
   characters = signal<any[]>([]);
 
@@ -31,8 +36,23 @@ export class CarrouselComponent {
         this.apiResp = resp;
         const data = this.apiResp.data.results;
         this.characters.update((value) => [...value, data[0]]);
-        console.log(this.characters());
+        //console.log(this.characters());
       });
+    }
+  }
+
+  charactersComics = signal<any[]>([]);
+
+  private getCharactersComics() {
+    for (let i = 0; i < this.heroes.length; i++) {
+      this.requestService
+        .getCharacterComics(this.heroes[i])
+        .subscribe((resp) => {
+          this.apiResp = resp;
+          const data = this.apiResp.data.results;
+          this.charactersComics.update((value) => [...value, data]);
+          console.log(this.charactersComics());
+        });
     }
   }
 }

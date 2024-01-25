@@ -4,10 +4,9 @@
   <div>
     <p class="font-bold text-base">Comics</p>
     <ul>
-      <li>dfsdfd</li>
-      <li>dfsdfd</li>
-      <li>dfsdfd</li>
-      <li>dfsdfd</li>
+      @for (comic of comicsArray; track $index) {
+      <li>{{ comic.title }}</li>
+      }
     </ul>
   </div>
   <div>

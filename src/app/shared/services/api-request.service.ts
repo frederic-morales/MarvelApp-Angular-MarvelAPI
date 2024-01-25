@@ -8,8 +8,6 @@ import { Md5 } from 'ts-md5';
 export class ApiRequestService {
   private http = inject(HttpClient);
 
-  constructor() {}
-
   getCharacters(id: number) {
     const url = new URL(
       `http://gateway.marvel.com/v1/public/characters/${id.toString()}`
@@ -31,7 +29,7 @@ export class ApiRequestService {
 
   getCharacterComics(id: number) {
     const url = new URL(
-      `http://gateway.marvel.com/v1/public/characters/${id.toString()}/comics`
+      `http://gateway.marvel.com/v1/public/characters/${id.toString()}/comics?limit=10`
     );
     /*const now = new Date();
     const timestamp = now.getTime();

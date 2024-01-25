@@ -11,6 +11,5 @@ import { CharacterComics } from '../../shared/models/character-comics.module';
 })
 export class CharacterInfoComponent {
   heroes = HeroesIds;
-  
-  @Input() characterComics!: CharacterComics;
+  @Input({ required: true }) comicsArray!: any;
 }
