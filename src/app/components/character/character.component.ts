@@ -4,7 +4,6 @@ import { NgFor } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { CharacterInfoComponent } from '../character-info/character-info.component';
 import { HeroesIds } from '../../shared/models/heroesIds.module';
-import { ApiRequestService } from '../../shared/services/api-request.service';
 
 @Component({
   selector: 'app-character',
@@ -16,4 +15,11 @@ import { ApiRequestService } from '../../shared/services/api-request.service';
 export class CharacterComponent {
   @Input({ required: true }) message!: string;
   @Input({ required: true }) character!: Character;
+  @Input({ required: true }) characterComics!: any;
+  //@Input({ required: true }) characterName!: any;
+
+  showInfo() {
+    const characterInfo = document.getElementById('characterInfo');
+    characterInfo?.classList.toggle('hidden');
+  }
 }

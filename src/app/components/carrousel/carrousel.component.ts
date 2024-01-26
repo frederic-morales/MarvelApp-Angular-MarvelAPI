@@ -14,8 +14,8 @@ import { CharacterInfoComponent } from '../character-info/character-info.compone
 })
 export class CarrouselComponent {
   ngOnInit() {
-    this.getCharactersComics();
     this.getCharacters();
+    this.getCharactersComics();
   }
 
   heroes = [
@@ -24,6 +24,7 @@ export class CarrouselComponent {
     1009368, //IronMan:
     1009220, //CaptianAmerica:
   ]; // Id de cada personaje a renderizar
+
   apiResp: any;
   characters = signal<any[]>([]);
 
