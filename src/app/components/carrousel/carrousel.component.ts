@@ -14,8 +14,10 @@ import { CharacterInfoComponent } from '../character-info/character-info.compone
 })
 export class CarrouselComponent {
   ngOnInit() {
-    this.getCharacters();
-    this.getCharactersComics();
+    this.heroes.forEach((id) => {
+      this.getCharacters(id);
+      this.getCharactersComics(id);
+    });
   }
 
   heroes = [
@@ -30,30 +32,24 @@ export class CarrouselComponent {
 
   private requestService = inject(ApiRequestService);
 
-  private getCharacters() {
-    for (let i = 0; i < this.heroes.length; i++) {
-      this.requestService.getCharacters(this.heroes[i]).subscribe((resp) => {
-        //console.log(resp);
-        this.apiResp = resp;
-        const data = this.apiResp.data.results;
-        this.characters.update((value) => [...value, data[0]]);
-        //console.log(this.characters());
-      });
-    }
+  private getCharacters(id: number) {
+    this.requestService.getCharacters(id).subscribe((resp) => {
+      //console.log(resp);
+      this.apiResp = resp;
+      const data = this.apiResp.data.results;
+      this.characters.update((value) => [...value, data[0]]);
+      //console.log(this.characters());
+    });
   }
 
   charactersComics = signal<any[]>([]);
 
-  private getCharactersComics() {
-    for (let i = 0; i < this.heroes.length; i++) {
-      this.requestService
-        .getCharacterComics(this.heroes[i])
-        .subscribe((resp) => {
-          this.apiResp = resp;
-          const data = this.apiResp.data.results;
-          this.charactersComics.update((value) => [...value, data]);
-          console.log(this.charactersComics());
-        });
-    }
+  private getCharactersComics(id: number) {
+    this.requestService.getCharacterComics(id).subscribe((resp) => {
+      this.apiResp = resp;
+      const data = this.apiResp.data.results;
+      this.charactersComics.update((value) => [...value, data]);
+      console.log(this.charactersComics());
+    });
   }
 }
