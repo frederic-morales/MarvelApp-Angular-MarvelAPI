@@ -22,4 +22,4 @@ export class CharacterComponent {
     const characterInfo = document.getElementById('characterInfo');
     characterInfo?.classList.toggle('hidden');
   }
-}
+} 
