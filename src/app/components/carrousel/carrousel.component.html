@@ -4,10 +4,10 @@
   >
     @for(character of characters(); track $index){
     <app-character
-      [message]="'Hola'"
       [character]="character"
       [characterComics]="charactersComics()[$index]"
+      [characterSeries]="charactersSeries()[$index]"
     />
     }
   </div>
-</div> 
+</div>

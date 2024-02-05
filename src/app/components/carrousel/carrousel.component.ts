@@ -3,21 +3,17 @@ import { Component, inject, signal } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
 import { ApiRequestService } from '../../shared/services/api-request.service';
 import { HeroesIds } from '../../shared/models/heroesIds.module';
-import { CharacterInfoComponent } from '../character-info/character-info.component';
 
 @Component({
   selector: 'app-carrousel',
   standalone: true,
-  imports: [NgFor, CharacterComponent, CharacterInfoComponent],
+  imports: [NgFor, CharacterComponent],
   templateUrl: './carrousel.component.html',
   styleUrl: './carrousel.component.css',
 })
 export class CarrouselComponent {
   ngOnInit() {
-    this.heroes.forEach((id) => {
-      this.getCharacters(id);
-      this.getCharactersComics(id);
-    });
+    this.getCharactersAndComics();
   }
 
   heroes = [
@@ -29,27 +25,31 @@ export class CarrouselComponent {
 
   apiResp: any;
   characters = signal<any[]>([]);
+  charactersComics = signal<any[]>([]);
+  charactersSeries = signal<any[]>([]);
 
   private requestService = inject(ApiRequestService);
 
   private getCharacters(id: number) {
     this.requestService.getCharacters(id).subscribe((resp) => {
-      //console.log(resp);
+      console.log(resp);
       this.apiResp = resp;
-      const data = this.apiResp.data.results;
-      this.characters.update((value) => [...value, data[0]]);
+      const results = this.apiResp.data.results;
+      this.characters.update((value) => [...value, results[0]]);
+      //Obtenemos los comics del personaje
+      const comics = results[0].comics.items;
+      this.charactersComics.update((value) => [...value, comics]);
+      //Obtenemos las series del personaje
+      const series = results[0].series.items;
+      this.charactersSeries.update((value) => [...value, series]);
+      console.log(this.charactersSeries());
+      //console.log(this.charactersComics());
       //console.log(this.characters());
     });
   }
-
-  charactersComics = signal<any[]>([]);
-
-  private getCharactersComics(id: number) {
-    this.requestService.getCharacterComics(id).subscribe((resp) => {
-      this.apiResp = resp;
-      const data = this.apiResp.data.results;
-      this.charactersComics.update((value) => [...value, data]);
-      console.log(this.charactersComics());
+  private getCharactersAndComics() {
+    this.heroes.forEach((id) => {
+      this.getCharacters(id);
     });
   }
 }

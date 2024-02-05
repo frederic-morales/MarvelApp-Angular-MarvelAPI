@@ -55,23 +55,29 @@
 
 <div
   class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 mt-1 space-y-3 py-3 pl-3"
-  id="characterInfo"
 >
   <div>
-    <p class="font-bold text-base">Comics</p>
-    <ul>
+    <p class="font-bold text-base hover:cursor-pointer">Comics</p>
+    <ul class="mr-4">
       @for (comic of characterComics; track $index) {
-      <li>{{ comic.title }}</li>
+      <li
+        class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
+      >
+        {{ comic.name }}
+      </li>
       }
     </ul>
   </div>
   <div>
-    <p class="font-bold text-base">Series</p>
-    <ul>
-      <li>dfsdfd</li>
-      <li>dfsdfd</li>
-      <li>dfsdfd</li>
-      <li>dfsdfd</li>
+    <p class="font-bold text-base hover:cursor-pointer">Series</p>
+    <ul class="mr-4">
+      @for (serie of characterSeries; track $index) {
+      <li
+        class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
+      >
+        {{ serie.name }}
+      </li>
+      }
     </ul>
   </div>
 </div>
