@@ -27,15 +27,10 @@ export class ApiRequestService {
     });
   }
 
-  getCharacterComics(id: number) {
+  getAllCharacters() {
     const url = new URL(
-      `http://gateway.marvel.com/v1/public/characters/${id.toString()}/comics?limit=10`
+      `http://gateway.marvel.com/v1/public/characters?limit=100`
     );
-    /*const now = new Date();
-    const timestamp = now.getTime();
-    const timestampInSeconds = Math.floor(timestamp / 1000);
-    console.log(timestampInSeconds);*/
-
     return this.http.get(url.toString(), {
       params: {
         apikey: 'e93dcdde2e628d98a6c61dda4785ba4d',
@@ -46,10 +41,8 @@ export class ApiRequestService {
     });
   }
 
-  getAllCharacters() {
-    const url = new URL(
-      `http://gateway.marvel.com/v1/public/characters?limit=100`
-    );
+  getComic(comicId: number) {
+    const url = new URL(`http://gateway.marvel.com/v1/public/comics/${comicId}`);
     return this.http.get(url.toString(), {
       params: {
         apikey: 'e93dcdde2e628d98a6c61dda4785ba4d',

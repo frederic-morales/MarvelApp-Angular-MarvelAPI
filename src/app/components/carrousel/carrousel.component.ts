@@ -32,7 +32,7 @@ export class CarrouselComponent {
 
   private getCharacters(id: number) {
     this.requestService.getCharacters(id).subscribe((resp) => {
-      console.log(resp);
+      //console.log(resp);
       this.apiResp = resp;
       const results = this.apiResp.data.results;
       this.characters.update((value) => [...value, results[0]]);
@@ -42,8 +42,8 @@ export class CarrouselComponent {
       //Obtenemos las series del personaje
       const series = results[0].series.items;
       this.charactersSeries.update((value) => [...value, series]);
-      console.log(this.charactersSeries());
-      //console.log(this.charactersComics());
+      //console.log(this.charactersSeries());
+      console.log(this.charactersComics());
       //console.log(this.characters());
     });
   }
