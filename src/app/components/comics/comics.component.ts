@@ -33,6 +33,7 @@ export class ComicsComponent {
     },
     modified: '',
     creators: {
+      available: 0,
       items: [
         { name: '', role: '' },
         { name: '', role: '' },
@@ -47,7 +48,7 @@ export class ComicsComponent {
   });
 
   getComic() {
-    this.requestService.getComic(22461).subscribe((resp) => {
+    this.requestService.getComic(21280).subscribe((resp) => {
       this.apiResp = resp;
       this.comic.set(this.apiResp.data.results[0]);
       console.log(this.comic());

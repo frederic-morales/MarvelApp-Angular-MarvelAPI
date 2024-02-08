@@ -1,15 +1,15 @@
 <div class="flex justify-center mb-6">
   <div
-    class="w-[85%] sm:max-w-[650px] grid items-center max-w-[350px] my-4 sm:items-start sm:grid-cols-5 sm:grid-rows-2 sm:mt-14 overflow-hidden lg:max-w-[1000px] lg:grid-cols-2 lg:mt-6 lg:mb-0"
+    class="w-[85%] sm:max-w-[650px] grid items-center max-w-[350px] my-4 sm:items-start sm:grid-cols-5 sm:grid-rows-4 sm:mt-14 overflow-hidden lg:max-w-[1000px] lg:grid-cols-2 lg:mt-6 lg:mb-0 hover:bg-stone-800 hover:text-rose-50 rounded-xl shadow-lg"
   >
     <h2
-      class="text-center font-bold text-xl pb-3 sm:order-2 sm:col-start-4 sm:col-end-6 my-auto mx-2 sm:text-3xl lg:col-start-2 lg:col-end-3 lg:text-4xl"
+      class="text-center font-bold text-xl py-3 sm:py-0 sm:order-2 sm:row-start-1 sm:row-end-2 sm:col-start-4 sm:col-end-6 my-auto mx-4 sm:text-3xl lg:col-start-2 lg:col-end-3 lg:text-5xl"
     >
       {{ comic().title }}
     </h2>
     <!--Contenedor del la imagen-->
     <div
-      class="sm:order-1 sm:row-start-1 sm:row-end-3 sm:col-start-1 sm:col-end-4 lg:col-end-2 lg:col-start-1"
+      class="sm:order-1 sm:row-start-1 sm:row-end-5 sm:col-start-1 sm:col-end-4 lg:col-end-2 lg:col-start-1"
     >
       <img
         class="w-full h-full object-cover"
@@ -19,22 +19,25 @@
     </div>
     <!--Contenedor de la informacion del character-->
     <div
-      class="text-xs text-start w-full my-2 font-semibold sm:order-3 sm:col-start-4 sm:col-end-6 sm:text-sm sm:ml-5 lg:col-start-2 lg:col-end-3 lg:text-xl lg:ml-9"
+      class="text-xs text-start w-full my-2 font-semibold sm:order-3 ml-3 py-3 sm:py-0 sm:row-start-2 sm:row-end-5 sm:col-start-4 sm:col-end-6 sm:text-xs sm:ml-5 lg:col-start-2 lg:col-end-3 lg:text-base lg:ml-6"
     >
       <ul>
         <li>{{ comic().prices[0].price | currency }}</li>
+        @if(comic().modified[0] != "-"){
         <li>{{ comic().modified | date : "longDate" }}</li>
+        }
+
         <li>{{ comic().id }}</li>
         <li>Characters:</li>
         @for(creator of comic().characters.items; track $index){
         <li class="font-normal ml-2 sm:ml-3">{{ creator.name }}</li>
-        }
-        <li>Creators:</li>
+        } @if(comic().creators.items.length > 0){
+        <li>creators:</li>
         @for(creator of comic().creators.items; track $index){
         <li class="font-normal ml-2 sm:ml-3">
           {{ creator.name }} - {{ creator.role }}
         </li>
-        }
+        } }
       </ul>
     </div>
   </div>
