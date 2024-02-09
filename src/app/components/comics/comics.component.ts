@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, Input, inject, signal } from '@angular/core';
 import { ApiRequestService } from '../../shared/services/api-request.service';
 import { Comic } from '../../shared/models/comics.module';
 import { CurrencyPipe, DatePipe } from '@angular/common';
@@ -11,8 +11,12 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
   styleUrl: './comics.component.css',
 })
 export class ComicsComponent {
+  @Input() comicId?: string;
+
   ngOnInit() {
-    this.getComic();
+    if (this.comicId) {
+      this.getComic(this.comicId);
+    }
   }
 
   private requestService = inject(ApiRequestService);
@@ -47,8 +51,8 @@ export class ComicsComponent {
     ],
   });
 
-  getComic() {
-    this.requestService.getComic(21280).subscribe((resp) => {
+  getComic(id: string) {
+    this.requestService.getComic(id).subscribe((resp) => {
       this.apiResp = resp;
       this.comic.set(this.apiResp.data.results[0]);
       console.log(this.comic());

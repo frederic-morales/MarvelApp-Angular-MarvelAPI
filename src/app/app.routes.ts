@@ -13,7 +13,7 @@ export const routes: Routes = [
         component: CarrouselComponent,
       },
       {
-        path: 'comics',
+        path: 'comics/:comicId',
         component: ComicsComponent,
       },
     ],

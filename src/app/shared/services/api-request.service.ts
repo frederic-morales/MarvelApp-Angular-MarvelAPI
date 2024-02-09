@@ -41,8 +41,10 @@ export class ApiRequestService {
     });
   }
 
-  getComic(comicId: number) {
-    const url = new URL(`http://gateway.marvel.com/v1/public/comics/${comicId}`);
+  getComic(comicId: string) {
+    const url = new URL(
+      `http://gateway.marvel.com/v1/public/comics/${comicId}`
+    );
     return this.http.get(url.toString(), {
       params: {
         apikey: 'e93dcdde2e628d98a6c61dda4785ba4d',
