@@ -1,0 +1,22 @@
+<div class="bg-stone-800 w-full flex justify-center">
+  <div
+    class="flex justify-center items-center text-white flex-col h-40 sm:flex-row sm:h-24 w-full sm:justify-between max-w-[85%] lg:px-5 lg:max-w-7xl lg:mx-8"
+  >
+    <div
+      class="w-[80%] max-w-[270px] justify-between items-center flex text-2xl sm:text-3xl h-[40%] sm:justify-start sm:space-x-6 sm:w-[40%] md:space-x-8 lg:space-x-14 lg:text-4xl"
+    >
+      @for(red of redes; track $index){
+      <a href="https://github.com/frederic-morales" target="_blank">
+        <i class="fa-brands {{ red }} hover:text-orange-500 "></i>
+      </a>
+      }
+    </div>
+    <div
+      class="h-[40%] flex items-center sm:w-[60%] justify-end sm:text-lg text-center lg:text-xl font-bold hover:text-orange-500"
+    >
+      <a href="https://developer.marvel.com/" target="_blank"
+        >Data provided by Marvel. © 2014 Marvel</a
+      >
+    </div>
+  </div>
+</div>
