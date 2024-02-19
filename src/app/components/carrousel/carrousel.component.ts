@@ -11,7 +11,7 @@ import { single } from 'rxjs';
   imports: [NgFor, CharacterComponent],
   templateUrl: './carrousel.component.html',
   styleUrl: './carrousel.component.css',
-}) 
+})
 export class CarrouselComponent {
   ngOnInit() {
     this.getCharactersAndComics();
@@ -37,16 +37,16 @@ export class CarrouselComponent {
       this.apiResp = resp;
       const results = this.apiResp.data.results;
       this.characters.update((value) => [...value, results[0]]);
-      
+
       //Obtenemos los comics del personaje
       const comics = results[0].comics.items;
       this.charactersComics.update((value) => [...value, comics]);
-      
+
       //Obtenemos las series del personaje
       const series = results[0].series.items;
       this.charactersSeries.update((value) => [...value, series]);
-      
-      //console.log(this.charactersSeries());
+
+      console.log(this.charactersSeries());
       //console.log(this.charactersComics());
       //console.log(this.characters());
     });

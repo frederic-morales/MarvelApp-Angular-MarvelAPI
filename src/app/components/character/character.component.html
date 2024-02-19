@@ -33,9 +33,10 @@
   <div
     class="absolute bottom-[-12px] mx-auto left-0 right-0 flex items-end justify-center sm:bottom-[-14px] text-orange-500"
   >
-    <button 
-    (click)="showComics(character.id)"
-    class="hover:cursor-pointer bg-stone-800 rounded-[50%]">
+    <button
+      (click)="showComics(character.id)"
+      class="hover:cursor-pointer bg-stone-800 rounded-[50%]"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -60,7 +61,7 @@
     <p class="font-bold text-base hover:cursor-pointer">Comics</p>
     <ul class="mr-4">
       @for (comic of characterComics; track $index) {
-      <a [routerLink]="['./comics', returnComicId(comic.resourceURI)]">
+      <a [routerLink]="['./comics', returnId(comic.resourceURI)]">
         <li
           class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
         >
@@ -74,11 +75,13 @@
     <p class="font-bold text-base hover:cursor-pointer">Series</p>
     <ul class="mr-4">
       @for (serie of characterSeries; track $index) {
-      <li
-        class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
-      >
-        {{ serie.name }}
-      </li>
+      <a [routerLink]="['./series', returnId(serie.resourceURI)]">
+        <li
+          class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
+        >
+          {{ serie.name }}
+        </li>
+      </a>
       }
     </ul>
   </div>

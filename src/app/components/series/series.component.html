@@ -1,0 +1,53 @@
+@if(serie().title != ""){
+<div class="flex justify-center mb-6">
+  <div
+    class="w-[85%] sm:max-w-[650px] grid items-center max-w-[350px] my-4 sm:items-start sm:grid-cols-5 sm:grid-rows-5 sm:mt-14 overflow-hidden lg:max-w-[800px] lg:grid-cols-2 lg:mt-6 lg:mb-0 hover:bg-stone-800 hover:text-rose-50 rounded-xl shadow-lg lg:grid-rows-6"
+  >
+    <h2
+      class="text-center font-bold text-xl py-3 sm:py-0 sm:order-2 sm:row-start-1 sm:row-end-2 sm:col-start-3 sm:col-end-6 my-auto mx-4 sm:text-2xl lg:col-start-2 lg:col-end-3 lg:text-4xl lg:row-end-3"
+    >
+      {{ serie().title }}
+    </h2>
+    <!--Contenedor del la imagen-->
+    <div
+      class="sm:order-1 sm:row-start-1 sm:row-end-6 sm:col-start-1 sm:col-end-3 lg:col-end-2 lg:col-start-1 lg:row-end-7"
+    >
+      <img
+        class="w-full h-full object-cover"
+        [src]="serie().thumbnail.path + '.' + serie().thumbnail.extension"
+        alt="Imagen"
+      />
+    </div>
+    <!--Contenedor de la informacion del character-->
+    <div
+      class="text-justify w-full font-bold sm:order-3 p-3 sm:row-start-2 sm:row-end-6 sm:px-4 sm:col-start-3 sm:col-end-6 lg:col-start-2 lg:col-end-3 lg:text-base lg:px-7 lg:row-start-3 lg:row-end-7"
+    >
+      <div>
+        @if(serie().modified[0] != "-"){
+        <p>{{ serie().modified | date : "longDate" }}</p>
+        }
+        <p>{{ serie().id }}</p>
+        <p>Characters:</p>
+        <ul class="text-sm">
+          @for(creator of serie().characters.items; track $index){
+          <li class="ml-2 sm:ml-3 inline-block text-[10px] font-semibold">
+            {{ creator.name }},
+          </li>
+          }
+        </ul>
+        @if(serie().creators.items.length > 0){
+        <p>Creators:</p>
+        <ul class="text-sm">
+          @for(creator of serie().creators.items; track $index){
+          <li class="ml-2 sm:ml-3 inline-block text-[10px] font-semibold">
+            {{ creator.name }} - {{ creator.role }},
+          </li>
+          }
+        </ul>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+}
