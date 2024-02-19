@@ -6,8 +6,13 @@
       class="w-[80%] max-w-[270px] justify-between items-center flex text-2xl sm:text-3xl h-[40%] sm:justify-start sm:space-x-6 sm:w-[40%] md:space-x-8 lg:space-x-14 lg:text-4xl"
     >
       @for(red of redes; track $index){
+<<<<<<< HEAD
       <a [href]="red.link" target="_blank">
         <i class="fa-brands {{ red.brand }} hover:text-orange-500 "></i>
+=======
+      <a href={{red.link}} target="_blank">
+        <i class="fa-brands {{ red.img }} hover:text-orange-500 "></i>
+>>>>>>> 140cacc26cb95607111c9f7d102ff7ebbaa77400
       </a>
       }
     </div>

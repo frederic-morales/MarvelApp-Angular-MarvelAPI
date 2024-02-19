@@ -10,7 +10,7 @@ export class ApiRequestService {
 
   getCharacters(id: number) {
     const url = new URL(
-      `http://gateway.marvel.com/v1/public/characters/${id.toString()}`
+      `https://gateway.marvel.com/v1/public/characters/${id.toString()}`
     );
     /*const now = new Date();
     const timestamp = now.getTime();
@@ -29,7 +29,7 @@ export class ApiRequestService {
 
   getAllCharacters() {
     const url = new URL(
-      `http://gateway.marvel.com/v1/public/characters?limit=100`
+      `https://gateway.marvel.com/v1/public/characters?limit=100`
     );
     return this.http.get(url.toString(), {
       params: {
@@ -43,7 +43,7 @@ export class ApiRequestService {
 
   getComic(comicId: string) {
     const url = new URL(
-      `http://gateway.marvel.com/v1/public/comics/${comicId}`
+      `https://gateway.marvel.com/v1/public/comics/${comicId}`
     );
     return this.http.get(url.toString(), {
       params: {

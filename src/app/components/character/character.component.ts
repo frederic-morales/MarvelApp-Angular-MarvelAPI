@@ -1,4 +1,4 @@
-import { Component, Input, signal, inject } from '@angular/core';
+import { Component, Input, signal, inject, Output, EventEmitter } from '@angular/core';
 import { Character } from '../../shared/models/character.module';
 import { NgFor } from '@angular/common';
 import { DatePipe } from '@angular/common';
@@ -14,11 +14,18 @@ import { RouterLinkWithHref } from '@angular/router';
 })
 export class CharacterComponent {
   @Input({ required: true }) character!: Character;
-  @Input({ required: true }) characterComics!: any;
+  @Input({required: true}) characterComics!: any;
   @Input({ required: true }) characterSeries!: any;
+  @Output() characterIdfromComics = new EventEmitter<any>();
   //@Input({ required: true }) characterName!: any;
+  
+  //Retornamos el id del comic clickeado para pasarlo al router 
   returnComicId(resource: string) {
     const id = resource.slice(-5);
     return id;
+  }
+
+  showComics(characterID: any){
+    
   }
 }

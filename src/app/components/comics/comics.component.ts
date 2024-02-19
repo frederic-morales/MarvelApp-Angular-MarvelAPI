@@ -10,7 +10,7 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
   templateUrl: './comics.component.html',
   styleUrl: './comics.component.css',
 })
-export class ComicsComponent {
+export class ComicsComponent { 
   @Input() comicId?: string;
 
   ngOnInit() {

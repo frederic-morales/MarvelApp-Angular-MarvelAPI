@@ -33,7 +33,9 @@
   <div
     class="absolute bottom-[-12px] mx-auto left-0 right-0 flex items-end justify-center sm:bottom-[-14px] text-orange-500"
   >
-    <button class="hover:cursor-pointer bg-stone-800 rounded-[50%]">
+    <button 
+    (click)="showComics(character.id)"
+    class="hover:cursor-pointer bg-stone-800 rounded-[50%]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -52,6 +54,7 @@
 
 <div
   class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 mt-1 space-y-3 py-3 pl-3"
+  id="img-svg"
 >
   <div>
     <p class="font-bold text-base hover:cursor-pointer">Comics</p>
