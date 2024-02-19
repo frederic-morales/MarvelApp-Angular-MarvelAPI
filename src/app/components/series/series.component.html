@@ -1,7 +1,7 @@
 @if(serie().title != ""){
 <div class="flex justify-center mb-6">
   <div
-    class="w-[85%] sm:max-w-[650px] grid items-center max-w-[350px] my-4 sm:items-start sm:grid-cols-5 sm:grid-rows-5 sm:mt-14 overflow-hidden lg:max-w-[800px] lg:grid-cols-2 lg:mt-6 lg:mb-0 hover:bg-stone-800 hover:text-rose-50 rounded-xl shadow-lg lg:grid-rows-6"
+    class="w-[85%] sm:max-w-[650px] grid items-center max-w-[350px] my-4 sm:items-start sm:grid-cols-5 sm:grid-rows-5 sm:mt-14 overflow-hidden lg:max-w-[800px] lg:grid-cols-2 lg:mt-6 lg:mb-0 hover:bg-stone-800 hover:text-rose-50 rounded-xl shadow-lg lg:grid-rows-6 sm:shadow-none sm:hover:bg-white sm:hover:text-black lg:shadow-lg lg:hover:bg-stone-800 lg:hover:text-rose-50"
   >
     <h2
       class="text-center font-bold text-xl py-3 sm:py-0 sm:order-2 sm:row-start-1 sm:row-end-2 sm:col-start-3 sm:col-end-6 my-auto mx-4 sm:text-2xl lg:col-start-2 lg:col-end-3 lg:text-4xl lg:row-end-3"
@@ -10,10 +10,10 @@
     </h2>
     <!--Contenedor del la imagen-->
     <div
-      class="sm:order-1 sm:row-start-1 sm:row-end-6 sm:col-start-1 sm:col-end-3 lg:col-end-2 lg:col-start-1 lg:row-end-7"
+      class="my-auto sm:order-1 sm:row-start-1 sm:row-end-6 sm:col-start-1 sm:col-end-3 lg:col-end-2 lg:col-start-1 lg:row-end-7"
     >
       <img
-        class="w-full h-full object-cover"
+        class="h-full"
         [src]="serie().thumbnail.path + '.' + serie().thumbnail.extension"
         alt="Imagen"
       />
