@@ -3,25 +3,18 @@
     display: none;
   }
 </style>
-<div
-  class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 relative"
->
+<div class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 relative">
   <h2 class="font-bold text-xl p-3">{{ character.name }}</h2>
   <h2 class="font-bold text-xl p-3 hidden">{{ character.id }}</h2>
   <div class="h-48">
-    <img
-      class="w-full h-full object-cover"
-      [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
-      [alt]="character.name"
-    />
+    <img class="w-full h-full object-cover" [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+      [alt]="character.name" />
   </div>
   <div class="w-full pb-3">
     <p class="pl-3 pt-3 text-sm font-semibold sm:pb-2">
       Modified: {{ character.modified | date : "longDate" }}
     </p>
-    <div
-      class="px-3 sm:h-40 hidden sm:block text-ellipsis overflow-auto relative"
-    >
+    <div class="px-3 sm:h-40 hidden sm:block text-ellipsis overflow-auto relative">
       <p class="leading-5">
         {{ character.description }}
       </p>
@@ -31,54 +24,37 @@
     </div>
   </div>
   <div
-    class="absolute bottom-[-12px] mx-auto left-0 right-0 flex items-end justify-center sm:bottom-[-14px] text-orange-500"
-  >
-    <button
-      (click)="showComics(character.id)"
-      class="hover:cursor-pointer bg-stone-800 rounded-[50%]"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="w-6 h-6"
-      >
-        <path
-          fill-rule="evenodd"
+    class="absolute bottom-[-12px] mx-auto left-0 right-0 flex items-end justify-center sm:bottom-[-14px] text-orange-500">
+    <button (click)="showComics()" class="hover:cursor-pointer bg-stone-800 rounded-[50%]">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path fill-rule="evenodd"
           d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-.53 14.03a.75.75 0 0 0 1.06 0l3-3a.75.75 0 1 0-1.06-1.06l-1.72 1.72V8.25a.75.75 0 0 0-1.5 0v5.69l-1.72-1.72a.75.75 0 0 0-1.06 1.06l3 3Z"
-          clip-rule="evenodd"
-        />
+          clip-rule="evenodd" />
       </svg>
     </button>
   </div>
 </div>
 
-<div
-  class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 mt-1 space-y-3 py-3 pl-3"
-  id="img-svg"
->
-  <div>
+<div class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 mt-1 space-y-3 py-3 pl-3"
+  id="img-svg">
+  <div id="comics">
     <p class="font-bold text-base hover:cursor-pointer">Comics</p>
     <ul class="mr-4">
       @for (comic of characterComics; track $index) {
       <a [routerLink]="['./comics', returnId(comic.resourceURI)]">
-        <li
-          class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
-        >
+        <li class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer">
           {{ comic.name }}
         </li>
       </a>
       }
     </ul>
   </div>
-  <div>
+  <div id="series">
     <p class="font-bold text-base hover:cursor-pointer">Series</p>
     <ul class="mr-4">
       @for (serie of characterSeries; track $index) {
       <a [routerLink]="['./series', returnId(serie.resourceURI)]">
-        <li
-          class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
-        >
+        <li class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer">
           {{ serie.name }}
         </li>
       </a>

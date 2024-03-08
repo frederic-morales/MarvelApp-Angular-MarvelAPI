@@ -1,6 +1,6 @@
-<div class="search">
-  <input type="text" class="input" placeholder="Search..." />
-  <button class="btn">
-    <i class="fas fa-search"></i>
-  </button>
+<div class="relative h-[50px]" id="search">
+    <input id="input" type="text" class="bg-orange-500 text-[18px] p-[15px] h-[15px] w-[15px] focus:outline-none active:w-[200px]" placeholder="Search..." />
+    <button class="focus:outline-none bg-orange-500 border-0 cursor-pointer text-[24px] absolute top-0 left-0 h-[50px] w-[50px]" (click)="show()">
+      <i class="fas fa-search"></i>
+    </button>
 </div>

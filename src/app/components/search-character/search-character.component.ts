@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './search-character.component.html',
   styleUrl: './search-character.component.css',
 })
-export class SearchCharacterComponent {}
+export class SearchCharacterComponent {
+  search = document.getElementById("search")
+  input = document.getElementById("input")
+
+  show(){
+    this.search?.classList.toggle("active")
+    this.input?.focus()
+  }
+}

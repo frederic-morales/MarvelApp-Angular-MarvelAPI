@@ -32,5 +32,12 @@ export class CharacterComponent {
     return id;
   }
 
-  showComics(characterID: any) {}
+  showComics() {
+    let x : any = document.getElementById("comics");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+  }
 }
