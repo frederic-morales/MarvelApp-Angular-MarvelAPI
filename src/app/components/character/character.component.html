@@ -35,14 +35,15 @@
   </div>
 </div>
 
-<div class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 mt-1 space-y-3 py-3 pl-3"
+@if(showInfo()){
+  <div class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500  hover:text-rose-50 mt-1 space-y-3 py-3 pl-3"
   id="img-svg">
   <div id="comics">
     <p class="font-bold text-base hover:cursor-pointer">Comics</p>
     <ul class="mr-4">
       @for (comic of characterComics; track $index) {
       <a [routerLink]="['./comics', returnId(comic.resourceURI)]">
-        <li class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer">
+        <li class="text-xs mb-[6px] hover:text-orange-500 font-semibold   hover:cursor-pointer">
           {{ comic.name }}
         </li>
       </a>
@@ -54,11 +55,12 @@
     <ul class="mr-4">
       @for (serie of characterSeries; track $index) {
       <a [routerLink]="['./series', returnId(serie.resourceURI)]">
-        <li class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer">
+        <li class="text-xs mb-[6px] hover:text-orange-500 font-semibold   hover:cursor-pointer">
           {{ serie.name }}
         </li>
       </a>
       }
     </ul>
   </div>
-</div>
+  </div>
+}

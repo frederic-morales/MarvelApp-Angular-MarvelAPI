@@ -24,6 +24,9 @@ export class CharacterComponent {
   @Input({ required: true }) characterComics!: any;
   @Input({ required: true }) characterSeries!: any;
   @Output() characterIdfromComics = new EventEmitter<any>();
+
+  showInfo = signal<boolean>(false)
+
   //@Input({ required: true }) characterName!: any;
 
   //Retornamos el id del comic clickeado para pasarlo al router
@@ -32,12 +35,20 @@ export class CharacterComponent {
     return id;
   }
 
-  showComics() {
+  /*showComics() {
     let x : any = document.getElementById("comics");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
+    }
+  }*/
+
+  showComics(){
+    if(this.showInfo() === false){
+      this.showInfo.set(true)
+    } else if (this.showInfo() === true){
+      this.showInfo.set(false)
     }
   }
 }
