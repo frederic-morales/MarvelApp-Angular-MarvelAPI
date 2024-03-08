@@ -25,7 +25,7 @@ export class CharacterComponent {
   @Input({ required: true }) characterSeries!: any;
   @Output() characterIdfromComics = new EventEmitter<any>();
 
-  showInfo = signal<boolean>(false)
+  showInfo = signal<boolean>(false);
 
   //@Input({ required: true }) characterName!: any;
 
@@ -44,11 +44,11 @@ export class CharacterComponent {
     }
   }*/
 
-  showComics(){
-    if(this.showInfo() === false){
-      this.showInfo.set(true)
-    } else if (this.showInfo() === true){
-      this.showInfo.set(false)
+  showComics() {
+    if (this.showInfo() === false) {
+      this.showInfo.set(true);
+    } else if (this.showInfo() === true) {
+      this.showInfo.set(false);
     }
   }
 }

@@ -1,4 +1,4 @@
-<div class="flex items-center mb-12 flex-col">
+<div class="flex items-center mb-12 flex-col lg:mt-5">
   <div
     class="flex justify-center sm:flex-row flex-wrap gap-6 max-w-7xl lg:px-9 lg:gap-x-28 xl:px-4 xl:gap-x-8 my-5 md:gap-x-20"
   >
@@ -10,5 +10,10 @@
     />
     }
   </div>
-  <app-search-character />
+  <div class="flex w-screen justify-evenly pt-8 max-w-7xl lg:my-10">
+    <a [routerLink]="['allCharacters']">More Characters</a>
+    <a [routerLink]="['allCharacters']">Comics</a>
+    <a [routerLink]="['allCharacters']">Series</a>
+    <a [routerLink]="['allCharacters']">More</a>
+  </div>
 </div>

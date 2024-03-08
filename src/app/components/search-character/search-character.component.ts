@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-search-character',
@@ -8,11 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './search-character.component.css',
 })
 export class SearchCharacterComponent {
-  search = document.getElementById("search")
-  input = document.getElementById("input")
+  showInput = signal<boolean>(false);
 
-  show(){
-    this.search?.classList.toggle("active")
-    this.input?.focus()
+  displayInput() {
+    if (!this.showInput()) {
+      this.showInput.set(true);
+    } else {
+      this.showInput.set(false);
+    }
   }
 }
