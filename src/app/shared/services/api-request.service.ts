@@ -63,6 +63,4 @@ export class ApiRequestService {
       headers: {},
     });
   }
-
-  
 }
