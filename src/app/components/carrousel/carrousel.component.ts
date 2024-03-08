@@ -2,13 +2,14 @@ import { NgFor } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
 import { ApiRequestService } from '../../shared/services/api-request.service';
+import { SearchCharacterComponent } from '../search-character/search-character.component';
 import { HeroesIds } from '../../shared/models/heroesIds.module';
 import { single } from 'rxjs';
 
 @Component({
   selector: 'app-carrousel',
   standalone: true,
-  imports: [NgFor, CharacterComponent],
+  imports: [NgFor, CharacterComponent, SearchCharacterComponent],
   templateUrl: './carrousel.component.html',
   styleUrl: './carrousel.component.css',
 })
