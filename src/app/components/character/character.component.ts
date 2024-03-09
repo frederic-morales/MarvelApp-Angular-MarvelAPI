@@ -21,8 +21,10 @@ import { RouterLinkWithHref } from '@angular/router';
 })
 export class CharacterComponent {
   @Input({ required: true }) character!: Character;
-  @Input({ required: true }) characterComics!: any;
-  @Input({ required: true }) characterSeries!: any;
+  @Input() characterComics!: any;
+  @Input() characterSeries!: any;
+  @Input() showDescription!: boolean;
+
   @Output() characterIdfromComics = new EventEmitter<any>();
 
   showInfo = signal<boolean>(false);

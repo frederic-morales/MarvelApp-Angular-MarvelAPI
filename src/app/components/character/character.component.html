@@ -14,16 +14,16 @@
     <p class="pl-3 pt-3 text-sm font-semibold sm:pb-2">
       Modified: {{ character.modified | date : "longDate" }}
     </p>
-    <div class="px-3 sm:h-40 hidden sm:block text-ellipsis overflow-auto relative">
-      <p class="leading-5">
-        {{ character.description }}
-      </p>
-    </div>
-    <div class="hidden">
-      <p>golsdfdf</p>
-    </div>
+    @if(showDescription){
+      <div class="px-3 sm:h-40 hidden sm:block text-ellipsis overflow-auto relative">
+        <p class="leading-5">
+          {{ character.description }}
+        </p>
+      </div>
+    }
   </div>
-  <div
+  @if(showDescription){
+    <div
     class="absolute bottom-[-12px] mx-auto left-0 right-0 flex items-end justify-center sm:bottom-[-14px] text-orange-500">
     <button (click)="showComics()" class="hover:cursor-pointer bg-stone-800 rounded-[50%]">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -33,6 +33,7 @@
       </svg>
     </button>
   </div>
+  }
 </div>
 
 @if(showInfo()){
