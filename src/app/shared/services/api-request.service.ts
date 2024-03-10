@@ -22,9 +22,9 @@ export class ApiRequestService {
     });
   }
 
-  getAllCharacters(offset:number) {
+  getAllCharacters(offset: number) {
     const url = new URL(
-      `https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}00`
+      `https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}`
     );
     return this.http.get(url.toString(), {
       params: {

@@ -1,8 +1,7 @@
-<div class="flex justify-center flex-wrap my-5 w-full gap-7">
-  @for(character of characters(); track $index){
-    <app-character
-      [character]="character"
-      [showDescription]="false"
-    />
-  }
+<div class="w-screen flex justify-center">
+  <div class="flex justify-center flex-wrap my-5 w-full gap-7 max-w-[1600px]">
+    @for(character of characters(); track $index){
+    <app-character [character]="character" [showDescription]="false" />
+    }
+  </div>
 </div>
