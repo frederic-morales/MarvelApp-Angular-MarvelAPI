@@ -24,6 +24,7 @@ export class CharacterComponent {
   @Input() characterComics!: any;
   @Input() characterSeries!: any;
   @Input() showDescription!: boolean;
+  @Input() showComicsAndSeries!: boolean;
 
   showInfo = signal<boolean>(false);
 

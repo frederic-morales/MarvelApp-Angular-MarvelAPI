@@ -10,11 +10,21 @@ import { Component, signal } from '@angular/core';
 export class SearchCharacterComponent {
   showInput = signal<boolean>(false);
 
+  inputValue = signal('');
+
   displayInput() {
     if (!this.showInput()) {
       this.showInput.set(true);
     } else {
       this.showInput.set(false);
     }
+  }
+
+  inputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+    this.inputValue.set(input.value);
+
+    this.displayInput();
   }
 }

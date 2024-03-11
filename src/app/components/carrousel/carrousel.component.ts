@@ -1,9 +1,10 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
 import { ApiRequestService } from '../../shared/services/api-request.service';
 import { SearchCharacterComponent } from '../search-character/search-character.component';
 import { RouterLinkWithHref } from '@angular/router';
+import { SIGNAL } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-carrousel',
@@ -13,6 +14,7 @@ import { RouterLinkWithHref } from '@angular/router';
     CharacterComponent,
     SearchCharacterComponent,
     RouterLinkWithHref,
+    NgIf,
   ],
   templateUrl: './carrousel.component.html',
   styleUrl: './carrousel.component.css',
@@ -51,7 +53,7 @@ export class CarrouselComponent {
       const series = results[0].series.items;
       this.charactersSeries.update((value) => [...value, series]);
 
-      console.log(this.charactersSeries());
+      //console.log(this.charactersSeries());
       //console.log(this.charactersComics());
       //console.log(this.characters());
     });
@@ -59,6 +61,40 @@ export class CarrouselComponent {
   private getCharactersAndComics() {
     this.heroes.forEach((id) => {
       this.getCharacters(id);
+    });
+  }
+
+  //SearchButton
+  showInput = signal<boolean>(false);
+  showCharacter = signal<boolean>(false);
+  characterSearched = signal<any>({});
+  showDescription = signal<boolean>(true);
+
+  displayInput() {
+    if (!this.showInput()) {
+      this.showInput.set(true);
+    } else {
+      this.showInput.set(false);
+    }
+  }
+
+  inputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+    this.displayInput();
+    this.getCharacterByName(input.value);
+    this.showCharacter.set(true);
+  }
+
+  private getCharacterByName(name: string) {
+    this.requestService.getCharacterByName(name).subscribe((resp) => {
+      this.apiResp = resp;
+      this.characterSearched.set(this.apiResp.data.results[0]);
+      console.log(this.characterSearched().description);
+
+      //if (this.characterSearched().description != '') {
+      //  this.showDescription = false;
+      //}
     });
   }
 }

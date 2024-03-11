@@ -8,11 +8,12 @@
       [characterComics]="charactersComics()[$index]"
       [characterSeries]="charactersSeries()[$index]"
       [showDescription]="true"
+      [showComicsAndSeries]="true"
     />
     }
   </div>
   <div
-    class="flex flex-wrap gap-2 items-center w-[90%] justify-evenly pt-8 max-w-7xl lg:my-5"
+    class="flex flex-wrap gap-2 items-center w-[90%] justify-evenly pt-8 max-w-7xl my-5"
   >
     <a
       [routerLink]="['allCharacters']"
@@ -29,11 +30,36 @@
       class="w-52 bg-red-500 text-white rounded-xl text-center py-3 hover:bg-red-700"
       >Series</a
     >
-    <a
-      [routerLink]="['allCharacters']"
-      class="w-52 bg-red-500 text-white rounded-xl text-center py-3 hover:bg-red-700"
-      >More</a
-    >
   </div>
-  <app-search-character class="my-10" />
+  <!--Search-->
+  <h2
+    class="font-bold text-2xl uppercase text-center p-4 sm:text-3xl sm:pt-8 text-orange-500"
+  >
+    Search a Character
+  </h2>
+  <div class="flex rounded-md bg-red-500">
+    @if(showInput()){
+    <div class="w-[85vw] max-w-[240px] p-2">
+      <input
+        id="input"
+        type="text"
+        class="focus:outline-none w-full bg-red-500 text-white placeholder:text-white"
+        placeholder="Search..."
+        value=""
+        (change)="inputChange($event)"
+      />
+    </div>
+    }
+    <button class="px-3 py-2 focus:outline-none" (click)="displayInput()">
+      <i class="fas fa-search text-white"></i>
+    </button>
+  </div>
+  @if(showCharacter()){
+  <app-character
+    [character]="characterSearched()"
+    [showDescription]="showDescription()"
+    [showComicsAndSeries]="false"
+    class="mt-8"
+  />
+  }
 </div>
