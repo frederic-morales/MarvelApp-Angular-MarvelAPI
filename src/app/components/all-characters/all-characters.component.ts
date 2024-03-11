@@ -12,16 +12,18 @@ import { CharacterComponent } from '../character/character.component';
 })
 export class AllCharactersComponent {
   ngOnInit() {
-    this.getAllCharacters();
+    this.getAllCharacters(0);
   }
+
+  offsets = [0, 100, 200, 300, 400, 500, 600, 700];
 
   private requestService = inject(ApiRequestService);
 
   apiRes: any;
   characters = signal<any[]>([]);
 
-  private getAllCharacters() {
-    this.requestService.getAllCharacters(0).subscribe((resp) => {
+  getAllCharacters(offset: number) {
+    this.requestService.getAllCharacters(offset).subscribe((resp) => {
       this.apiRes = resp;
       const results = this.apiRes.data.results;
       results.forEach((element: any) => {
@@ -29,5 +31,10 @@ export class AllCharactersComponent {
       });
       console.log(this.characters());
     });
+  }
+
+  getOtherCharacters(offset: number) {
+    this.characters.update((value) => []);
+    this.getAllCharacters(offset);
   }
 }

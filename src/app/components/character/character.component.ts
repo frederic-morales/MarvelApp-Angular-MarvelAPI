@@ -25,8 +25,6 @@ export class CharacterComponent {
   @Input() characterSeries!: any;
   @Input() showDescription!: boolean;
 
-  @Output() characterIdfromComics = new EventEmitter<any>();
-
   showInfo = signal<boolean>(false);
 
   //Retornamos el id del comic clickeado para pasarlo al router
