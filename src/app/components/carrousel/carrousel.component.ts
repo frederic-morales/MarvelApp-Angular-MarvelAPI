@@ -68,7 +68,6 @@ export class CarrouselComponent {
   showInput = signal<boolean>(false);
   showCharacter = signal<boolean>(false);
   characterSearched = signal<any>({});
-  showDescription = signal<boolean>(true);
 
   displayInput() {
     if (!this.showInput()) {
@@ -90,11 +89,6 @@ export class CarrouselComponent {
     this.requestService.getCharacterByName(name).subscribe((resp) => {
       this.apiResp = resp;
       this.characterSearched.set(this.apiResp.data.results[0]);
-      console.log(this.characterSearched().description);
-
-      //if (this.characterSearched().description != '') {
-      //  this.showDescription = false;
-      //}
     });
   }
 }

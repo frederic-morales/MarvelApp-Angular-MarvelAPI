@@ -19,7 +19,7 @@
     <p class="pl-3 pt-3 text-sm font-semibold sm:pb-2">
       Modified: {{ character.modified | date : "longDate" }}
     </p>
-    @if(showDescription){
+    @if(showDescription && character.description !== ''){
     <div
       class="px-3 sm:h-40 hidden sm:block text-ellipsis overflow-auto relative"
     >
