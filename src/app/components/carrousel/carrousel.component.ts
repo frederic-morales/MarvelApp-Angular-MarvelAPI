@@ -32,8 +32,8 @@ export class CarrouselComponent {
     1009220, //CaptianAmerica:
   ]; // Id de cada personaje a renderizar
 
-  apiResp: any;
-  characters = signal<any[]>([]);
+  apiResp?: any;
+  characters = signal<Character[]>([]);
   charactersComics = signal<any[]>([]);
   charactersSeries = signal<any[]>([]);
 
