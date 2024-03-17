@@ -27,7 +27,7 @@ export class AllCharactersComponent {
       results.forEach((element: any) => {
         this.characters.update((value) => [...value, element])
       })
-      console.log(this.characters());
+      //console.log(this.characters());
     });
   }
 }
