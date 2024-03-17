@@ -1,8 +1,39 @@
-<div class="flex justify-center flex-wrap my-5 w-full gap-7">
-  @for(character of characters(); track $index){
+<div class="w-screen flex flex-col items-center">
+  <div
+    class="flex justify-center w-[80%] max-w-7xl gap-5 sm:gap-8 flex-wrap my-6 sm:my-10"
+  >
+    @for(offset of offsets; track $index; ){
+    <button
+      (click)="getOtherCharacters(offset)"
+      type="button"
+      class="bg-red-500 rounded-full w-12 h-12 justify-center flex items-center hover:bg-red-400 sm:w-16 sm:h-16"
+    >
+      <p class="text-white">{{ $index + 1 }}</p>
+    </button>
+    }
+  </div>
+
+  <div class="flex justify-center flex-wrap w-full gap-7 max-w-[1600px]">
+    @for(character of characters(); track $index){
     <app-character
       [character]="character"
       [showDescription]="false"
+      [showComicsAndSeries]="false"
     />
-  }
+    }
+  </div>
+
+  <div
+    class="flex justify-center w-[80%] max-w-7xl gap-5 sm:gap-8 sm:mt-8 flex-wrap my-6 sm:my-10"
+  >
+    @for(offset of offsets; track $index; ){
+    <button
+      (click)="getOtherCharacters(offset)"
+      type="button"
+      class="bg-red-500 rounded-full w-12 h-12 justify-center flex items-center hover:bg-red-400 sm:w-16 sm:h-16"
+    >
+      <p class="text-white">{{ $index + 1 }}</p>
+    </button>
+    }
+  </div>
 </div>

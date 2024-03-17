@@ -17,7 +17,7 @@ export class ComicsComponent {
     if (this.comicId) {
       this.getComic(this.comicId);
     }
-  }
+  } 
 
   private requestService = inject(ApiRequestService);
   apiResp!: any;

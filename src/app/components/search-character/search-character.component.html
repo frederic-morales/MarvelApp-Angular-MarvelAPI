@@ -1,11 +1,13 @@
-<div class="flex rounded-md bg-stone-500">
+<div class="flex rounded-md bg-red-500">
   @if(showInput()){
   <div class="w-[85vw] max-w-[240px] p-2">
     <input
       id="input"
       type="text"
-      class="focus:outline-none w-full bg-stone-500 text-white placeholder:text-white"
+      class="focus:outline-none w-full bg-red-500 text-white placeholder:text-white"
       placeholder="Search..."
+      value=""
+      (change)="inputChange($event)"
     />
   </div>
   }

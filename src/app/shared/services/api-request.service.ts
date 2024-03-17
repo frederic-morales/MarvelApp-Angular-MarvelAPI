@@ -22,9 +22,9 @@ export class ApiRequestService {
     });
   }
 
-  getAllCharacters(offset:number) {
+  getAllCharacters(offset: number) {
     const url = new URL(
-      `https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}00`
+      `https://gateway.marvel.com/v1/public/characters?limit=100&offset=${offset}`
     );
     return this.http.get(url.toString(), {
       params: {
@@ -54,6 +54,21 @@ export class ApiRequestService {
     const url = new URL(
       `https://gateway.marvel.com/v1/public/series/${serieId}`
     );
+    return this.http.get(url.toString(), {
+      params: {
+        apikey: 'e93dcdde2e628d98a6c61dda4785ba4d',
+        ts: 1705621481,
+        hash: 'eff22e688506749165d52c595ea64e90',
+      },
+      headers: {},
+    });
+  }
+
+  getCharacterByName(name: string) {
+    const url = new URL(
+      `https://gateway.marvel.com/v1/public/characters?name=${name}`
+    );
+
     return this.http.get(url.toString(), {
       params: {
         apikey: 'e93dcdde2e628d98a6c61dda4785ba4d',
