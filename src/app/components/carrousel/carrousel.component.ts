@@ -5,6 +5,7 @@ import { ApiRequestService } from '../../shared/services/api-request.service';
 import { SearchCharacterComponent } from '../search-character/search-character.component';
 import { RouterLinkWithHref } from '@angular/router';
 import { SIGNAL } from '@angular/core/primitives/signals';
+import { Character } from '../../shared/models/character.module';
 
 @Component({
   selector: 'app-carrousel',
