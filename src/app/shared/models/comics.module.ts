@@ -5,7 +5,7 @@ export interface Comic {
     extension: string;
     path: string;
   };
-  id: number;
+  id: string;
   title: string;
   characters: {
     items: [

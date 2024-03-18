@@ -1,3 +1,51 @@
-<div class="min-h-[70vh]">
-  <div></div>
-</div>
+<main class="flex flex-col items-center">
+  <section
+    class="flex justify-center w-[80%] max-w-7xl gap-5 sm:gap-8 flex-wrap my-6 sm:my-10"
+  >
+    @for(offset of offsets; track $index; ){
+    <button
+      (click)="getOtherCharacters(offset)"
+      type="button"
+      class="bg-red-500 rounded-full w-12 h-12 justify-center flex items-center hover:bg-red-400 sm:w-16 sm:h-16"
+    >
+      <p class="text-white">{{ $index + 1 }}</p>
+    </button>
+    }
+  </section>
+  <div class="min-h-[70vh]">
+    <div class="flex flex-wrap justify-center gap-2 items-center">
+      @for(comic of comics(); track $index){
+      <a
+        class="w-[90%] text-center sm:w-[45%] lg:w-[20%] flex flex-col justify-center py-2 hover:bg-stone-800 hover:text-rose-50 shadow rounded-md"
+        [routerLink]="['', 'comics', comic.id]"
+      >
+        <h2 class="font-bold">
+          {{ comic.title }}
+        </h2>
+        <div>
+          <img
+            [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+            alt=""
+          />
+        </div>
+        <p class="font-semibold">
+          {{ comic.prices[0].price | currency }}
+        </p>
+      </a>
+      }
+    </div>
+  </div>
+  <section
+    class="flex justify-center w-[80%] max-w-7xl gap-5 sm:gap-8 flex-wrap my-6 sm:my-10"
+  >
+    @for(offset of offsets; track $index; ){
+    <button
+      (click)="getOtherCharacters(offset)"
+      type="button"
+      class="bg-red-500 rounded-full w-12 h-12 justify-center flex items-center hover:bg-red-400 sm:w-16 sm:h-16"
+    >
+      <p class="text-white">{{ $index + 1 }}</p>
+    </button>
+    }
+  </section>
+</main>

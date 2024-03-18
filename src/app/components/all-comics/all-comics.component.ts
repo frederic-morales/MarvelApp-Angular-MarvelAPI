@@ -1,19 +1,23 @@
 import { Component, inject, signal } from '@angular/core';
 import { ApiRequestService } from '../../shared/services/api-request.service';
 import { Comic } from '../../shared/models/comics.module';
+import { ComicsComponent } from '../comics/comics.component';
+import { CurrencyPipe } from '@angular/common';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-all-comics',
   standalone: true,
-  imports: [],
+  imports: [ComicsComponent, CurrencyPipe, RouterLinkWithHref],
   templateUrl: './all-comics.component.html',
   styleUrl: './all-comics.component.css',
 })
 export class AllComicsComponent {
   ngOnInit() {
-    this.getAllComics(0);
+    this.getAllComics(300);
   }
 
+  offsets = [0, 100, 200, 300, 400, 500, 600, 700, 800];
   private requestService = inject(ApiRequestService);
 
   apiRest?: any;
@@ -30,8 +34,8 @@ export class AllComicsComponent {
     });
   }
 
-  // getOtherCharacters(offset: number) {
-  //   this.characters.update((value) => []);
-  //   this.getAllCharacters(offset);
-  // }
+  getOtherCharacters(offset: number) {
+    this.comics.update(() => []);
+    this.getAllComics(offset);
+  }
 }

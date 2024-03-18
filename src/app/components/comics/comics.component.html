@@ -29,16 +29,17 @@
           <p>{{ comic().modified | date : "longDate" }}</p>
           }
           <p>{{ comic().id }}</p>
+          @if(comic().characters.items.length > 0){
           <p>Characters:</p>
           <ul class="text-sm">
             @for(creator of comic().characters.items; track $index){ @if($index
-            < 4 ){
+            <= 4 ){
             <li class="ml-2 sm:ml-3 inline-block text-[10px] font-semibold">
               {{ creator.name }},
             </li>
             } }
           </ul>
-          @if(comic().creators.items.length > 0){
+          } @if(comic().creators.items.length > 0){
           <p>Creators:</p>
           <ul class="text-sm">
             @for(creator of comic().creators.items; track $index){ @if($index <=
