@@ -22,19 +22,20 @@ export class AllCharactersComponent {
   apiRes: any;
   characters = signal<any[]>([]);
 
-  getAllCharacters(offset: number) {
+  private getAllCharacters(offset: number) {
     this.requestService.getAllCharacters(offset).subscribe((resp) => {
       this.apiRes = resp;
       const results = this.apiRes.data.results;
       results.forEach((element: any) => {
         this.characters.update((value) => [...value, element]);
       });
-      console.log(this.characters());
+      //console.log(this.characters());
     });
   }
 
   getOtherCharacters(offset: number) {
-    this.characters.update((value) => []);
+    this.characters.update(() => []);
     this.getAllCharacters(offset);
   }
+  
 }
