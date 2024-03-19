@@ -1,15 +1,7 @@
-import {
-  Component,
-  Input,
-  signal,
-  inject,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { Character } from '../../shared/models/character.module';
 import { NgFor } from '@angular/common';
 import { DatePipe } from '@angular/common';
-import { HeroesIds } from '../../shared/models/heroesIds.module';
 import { RouterLinkWithHref } from '@angular/router';
 
 @Component({

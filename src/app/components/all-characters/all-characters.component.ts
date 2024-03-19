@@ -12,15 +12,17 @@ import { CharacterComponent } from '../character/character.component';
 })
 export class AllCharactersComponent {
   ngOnInit() {
-    this.getAllCharacters(0);
+    this.getAllCharacters(this.offsets[0]);
   }
 
-  offsets = [0, 100, 200, 300, 400, 500, 600, 700, 800];
+  offsets = [200, 300, 400, 500, 600, 700, 800];
 
   private requestService = inject(ApiRequestService);
 
   apiRes: any;
   characters = signal<any[]>([]);
+  charactersComics = signal<any[]>([]);
+  charactersSeries = signal<any[]>([]);
 
   private getAllCharacters(offset: number) {
     this.requestService.getAllCharacters(offset).subscribe((resp) => {
@@ -29,7 +31,16 @@ export class AllCharactersComponent {
       results.forEach((element: any) => {
         this.characters.update((value) => [...value, element]);
       });
-      //console.log(this.characters());
+
+      // Obtenemos los comics del personaje
+      // results.forEach((element: any) => {
+      //   this.charactersComics.update((value) => [
+      //     ...value,
+      //     element.comics.items,
+      //   ]);
+      // });
+      // console.log(this.characters());
+      // console.log(this.charactersComics());
     });
   }
 
@@ -37,5 +48,4 @@ export class AllCharactersComponent {
     this.characters.update(() => []);
     this.getAllCharacters(offset);
   }
-  
 }

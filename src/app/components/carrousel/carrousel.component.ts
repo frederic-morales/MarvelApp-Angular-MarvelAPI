@@ -69,6 +69,8 @@ export class CarrouselComponent {
   showInput = signal<boolean>(false);
   showCharacter = signal<boolean>(false);
   characterSearched = signal<any>({});
+  comicsCharacterSearched = signal<any[]>([]);
+  seriesCharacterSearched = signal<any[]>([]);
 
   displayInput() {
     if (!this.showInput()) {
@@ -80,7 +82,7 @@ export class CarrouselComponent {
 
   inputChange(event: Event) {
     const input = event.target as HTMLInputElement;
-    console.log(input.value);
+    //console.log(input.value);
     this.displayInput();
     this.getCharacterByName(input.value);
     this.showCharacter.set(true);
@@ -90,6 +92,17 @@ export class CarrouselComponent {
     this.requestService.getCharacterByName(name).subscribe((resp) => {
       this.apiResp = resp;
       this.characterSearched.set(this.apiResp.data.results[0]);
+
+      //obtenemos los comics del character buscado
+      const comics = this.apiResp.data.results[0].comics.items;
+      this.comicsCharacterSearched.update(() => comics);
+
+      //obtenemos las series del character buscado
+      const series = this.apiResp.data.results[0].series.items;
+      this.seriesCharacterSearched.update(() => series);
+
+      //console.log(this.comicsCharacterSearched());
+      //console.log(this.seriesCharacterSearched());
     });
   }
 }

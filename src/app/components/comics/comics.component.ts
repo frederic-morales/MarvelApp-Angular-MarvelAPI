@@ -38,11 +38,7 @@ export class ComicsComponent {
     modified: '',
     creators: {
       available: 0,
-      items: [
-        { name: '', role: '' },
-        { name: '', role: '' },
-        { name: '', role: '' },
-      ],
+      items: [{ name: '', role: '' }],
     },
     prices: [
       {

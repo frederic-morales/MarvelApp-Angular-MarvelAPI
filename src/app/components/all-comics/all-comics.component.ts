@@ -17,7 +17,7 @@ export class AllComicsComponent {
     this.getAllComics(300);
   }
 
-  offsets = [0, 100, 200, 300, 400, 500, 600, 700, 800];
+  offsets = [300, 400, 500, 600, 700, 800];
   private requestService = inject(ApiRequestService);
 
   apiRest?: any;
@@ -30,7 +30,7 @@ export class AllComicsComponent {
       results.forEach((element: Comic) => {
         this.comics.update((value) => [...value, element]);
       });
-      console.log(this.comics());
+      //console.log(this.comics());
     });
   }
 
