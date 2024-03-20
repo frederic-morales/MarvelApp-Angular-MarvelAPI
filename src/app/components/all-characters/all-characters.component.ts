@@ -15,7 +15,7 @@ export class AllCharactersComponent {
     this.getAllCharacters(this.offsets[0]);
   }
 
-  offsets = [100, 200, 300, 400, 500, 600, 700];
+  offsets = [100, 200, 300, 400, 500, 600, 700, 800];
 
   private requestService = inject(ApiRequestService);
 
