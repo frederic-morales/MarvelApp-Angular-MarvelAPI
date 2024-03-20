@@ -54,7 +54,7 @@ export class CarrouselComponent {
       const series = results[0].series.items;
       this.charactersSeries.update((value) => [...value, series]);
 
-      //console.log(this.charactersSeries());
+      console.log(this.charactersSeries());
       //console.log(this.charactersComics());
       //console.log(this.characters());
     });

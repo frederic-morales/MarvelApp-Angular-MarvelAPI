@@ -1,12 +1,14 @@
 import { Character } from './character.module';
 
-export interface Comic {
+export type Comic = {
   thumbnail: {
     extension: string;
     path: string;
   };
   id: string;
+  name: string;
   title: string;
+  resourceURI: string;
   characters: {
     items: [
       {
@@ -24,4 +26,4 @@ export interface Comic {
       price: number;
     }
   ];
-}
+};

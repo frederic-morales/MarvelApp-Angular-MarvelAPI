@@ -63,7 +63,7 @@
     <p class="font-bold text-base hover:cursor-pointer">Comics</p>
     <ul class="mr-4">
       @for (comic of characterComics; track $index) {
-      <a [routerLink]="['./comics', returnId(comic.resourceURI)]">
+      <a [routerLink]="['', 'comics', returnId(comic.resourceURI)]">
         <li
           class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
         >

@@ -33,14 +33,14 @@ export class AllCharactersComponent {
       });
 
       // Obtenemos los comics del personaje
-      // results.forEach((element: any) => {
-      //   this.charactersComics.update((value) => [
-      //     ...value,
-      //     element.comics.items,
-      //   ]);
-      // });
-      // console.log(this.characters());
-      // console.log(this.charactersComics());
+      results.forEach((element: any) => {
+        this.charactersComics.update((value) => [
+          ...value,
+          element.comics.items,
+        ]);
+      });
+      //console.log(this.characters());
+      console.log(this.charactersComics());
     });
   }
 

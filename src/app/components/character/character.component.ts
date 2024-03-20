@@ -3,6 +3,7 @@ import { Character } from '../../shared/models/character.module';
 import { NgFor } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { RouterLinkWithHref } from '@angular/router';
+import { Comic } from '../../shared/models/comics.module';
 
 @Component({
   selector: 'app-character',
@@ -13,16 +14,23 @@ import { RouterLinkWithHref } from '@angular/router';
 })
 export class CharacterComponent {
   @Input({ required: true }) character!: Character;
-  @Input() characterComics!: any;
-  @Input() characterSeries!: any;
+  @Input() characterComics!: Array<Comic>;
+  @Input() characterSeries!: Array<any>;
   @Input() showDescription!: boolean;
   @Input() showComicsAndSeries!: boolean;
 
   showInfo = signal<boolean>(false);
 
   //Retornamos el id del comic clickeado para pasarlo al router
-  returnId(resource: string) {
-    const id = resource.slice(-5);
+  returnId(resource: string): string {
+    let id: string = '';
+    if (resource.includes('comics')) {
+      const comicsIndex = resource.indexOf('comics');
+      id = resource.slice(comicsIndex + 7);
+    } else if (resource.includes('series')) {
+      const comicsIndex = resource.indexOf('series');
+      id = resource.slice(comicsIndex + 7);
+    }
     return id;
   }
 
