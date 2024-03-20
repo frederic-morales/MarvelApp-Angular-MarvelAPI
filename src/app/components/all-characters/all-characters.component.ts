@@ -15,7 +15,7 @@ export class AllCharactersComponent {
     this.getAllCharacters(this.offsets[0]);
   }
 
-  offsets = [200, 300, 400, 500, 600, 700, 800];
+  offsets = [100, 200, 300, 400, 500, 600, 700];
 
   private requestService = inject(ApiRequestService);
 
@@ -39,8 +39,16 @@ export class AllCharactersComponent {
           element.comics.items,
         ]);
       });
+
+      results.forEach((element: any) => {
+        this.charactersSeries.update((value) => [
+          ...value,
+          element.series.items,
+        ]);
+      });
+      //console.log(this.charactersSeries());
       //console.log(this.characters());
-      console.log(this.charactersComics());
+      //console.log(this.charactersComics());
     });
   }
 

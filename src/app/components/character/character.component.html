@@ -54,7 +54,7 @@
   }
 </div>
 
-@if(showInfo()){
+@if(showInfo() && (characterComics.length > 0 || characterSeries.length > 0)){
 <div
   class="bg-white w-72 shadow-lg rounded-md hover:bg-stone-800 duration-500 hover:text-rose-50 mt-1 space-y-3 py-3 pl-3"
   id="img-svg"
@@ -77,7 +77,7 @@
     <p class="font-bold text-base hover:cursor-pointer">Series</p>
     <ul class="mr-4">
       @for (serie of characterSeries; track $index) {
-      <a [routerLink]="['./series', returnId(serie.resourceURI)]">
+      <a [routerLink]="['', 'series', returnId(serie.resourceURI)]">
         <li
           class="text-xs mb-[6px] hover:text-orange-500 font-semibold hover:cursor-pointer"
         >

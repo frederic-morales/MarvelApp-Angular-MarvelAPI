@@ -1,12 +1,6 @@
 import { Character } from './character.module';
 
-export type Comic = {
-  thumbnail: {
-    extension: string;
-    path: string;
-  };
-  id: string;
-  name: string;
+export interface Comic extends Character {
   title: string;
   resourceURI: string;
   characters: {
@@ -16,7 +10,6 @@ export type Comic = {
       }
     ];
   };
-  modified: string;
   creators: {
     available: number;
     items: [{ name: string; role: string }];
@@ -26,4 +19,6 @@ export type Comic = {
       price: number;
     }
   ];
-};
+}
+
+export interface Serie extends Comic {}

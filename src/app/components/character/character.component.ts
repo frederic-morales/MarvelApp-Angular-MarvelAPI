@@ -3,7 +3,7 @@ import { Character } from '../../shared/models/character.module';
 import { NgFor } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { RouterLinkWithHref } from '@angular/router';
-import { Comic } from '../../shared/models/comics.module';
+import { Comic, Serie } from '../../shared/models/comics.module';
 
 @Component({
   selector: 'app-character',
@@ -15,7 +15,7 @@ import { Comic } from '../../shared/models/comics.module';
 export class CharacterComponent {
   @Input({ required: true }) character!: Character;
   @Input() characterComics!: Array<Comic>;
-  @Input() characterSeries!: Array<any>;
+  @Input() characterSeries!: Array<Serie>;
   @Input() showDescription!: boolean;
   @Input() showComicsAndSeries!: boolean;
 

@@ -17,7 +17,7 @@ export class SeriesComponent {
     if (this.serieId) {
       this.getSerie(this.serieId);
     }
-  }
+  } 
 
   private requestService = inject(ApiRequestService);
   apiResp!: any;

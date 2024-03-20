@@ -33,7 +33,7 @@ export class ComicsComponent {
         {
           name: '',
         },
-      ],
+      ], 
     },
     modified: '',
     creators: {
