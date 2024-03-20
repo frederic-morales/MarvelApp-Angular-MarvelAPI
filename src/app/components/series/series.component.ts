@@ -17,7 +17,7 @@ export class SeriesComponent {
     if (this.serieId) {
       this.getSerie(this.serieId);
     }
-  } 
+  }
 
   private requestService = inject(ApiRequestService);
   apiResp!: any;
@@ -38,11 +38,7 @@ export class SeriesComponent {
     modified: '',
     creators: {
       available: 0,
-      items: [
-        { name: '', role: '' },
-        { name: '', role: '' },
-        { name: '', role: '' },
-      ],
+      items: [{ name: '', role: '' }],
     },
   });
   getSerie(id: string) {
@@ -50,7 +46,7 @@ export class SeriesComponent {
       console.log(resp);
       this.apiResp = resp;
       this.serie.set(this.apiResp.data.results[0]);
-      console.log(this.serie());
+      //console.log(this.serie());
     });
   }
 }

@@ -14,10 +14,10 @@ import { RouterLinkWithHref } from '@angular/router';
 })
 export class AllComicsComponent {
   ngOnInit() {
-    this.getAllComics(300);
+    this.getAllComics(this.offsets[0]);
   }
 
-  offsets = [300, 400, 500, 600, 700, 800, 900];
+  offsets = [200, 300, 400, 500, 600, 700, 800, 900];
   private requestService = inject(ApiRequestService);
 
   apiRest?: any;

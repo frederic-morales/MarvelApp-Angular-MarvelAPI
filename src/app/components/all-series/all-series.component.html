@@ -1,0 +1,52 @@
+<main class="flex flex-col items-center max-w-7xl mx-auto">
+  <section
+    class="flex justify-center w-[80%] max-w-7xl gap-5 sm:gap-8 flex-wrap my-6 sm:my-10"
+  >
+    @for(offset of offsets; track $index; ){
+    <button
+      (click)="getOtherCharacters(offset)"
+      type="button"
+      class="bg-red-500 rounded-full w-12 h-12 justify-center flex items-center hover:bg-red-400 sm:w-16 sm:h-16"
+    >
+      <p class="text-white">{{ $index + 1 }}</p>
+    </button>
+    }
+  </section>
+  <div class="min-h-[70vh]">
+    <div class="flex flex-wrap justify-center gap-2 items-center px-3">
+      @for(serie of series(); track $index){
+      <a
+        class="w-[90%] max-w-[150px] sm:max-w-[225px] text-center flex flex-col justify-center hover:bg-stone-800 hover:text-rose-50 shadow rounded-md"
+        [routerLink]="['', 'series', serie.id]"
+      >
+        <h2 class="font-bold p-2">
+          {{ serie.title }}
+        </h2>
+        <div>
+          <img
+            [src]="serie.thumbnail.path + '.' + serie.thumbnail.extension"
+            alt="SerieImage"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <!-- <p class="font-semibold p-2">
+          {{ serie.prices[0].price | currency }}
+        </p> -->
+      </a>
+      }
+    </div>
+  </div>
+  <section
+    class="flex justify-center w-[80%] max-w-7xl gap-5 sm:gap-8 flex-wrap my-6 sm:my-10"
+  >
+    @for(offset of offsets; track $index; ){
+    <button
+      (click)="getOtherCharacters(offset)"
+      type="button"
+      class="bg-red-500 rounded-full w-12 h-12 justify-center flex items-center hover:bg-red-400 sm:w-16 sm:h-16"
+    >
+      <p class="text-white">{{ $index + 1 }}</p>
+    </button>
+    }
+  </section>
+</main>

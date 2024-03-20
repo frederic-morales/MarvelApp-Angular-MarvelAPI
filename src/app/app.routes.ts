@@ -5,6 +5,7 @@ import { ComicsComponent } from './components/comics/comics.component';
 import { SeriesComponent } from './components/series/series.component';
 import { AllCharactersComponent } from './components/all-characters/all-characters.component';
 import { AllComicsComponent } from './components/all-comics/all-comics.component';
+import { AllSeriesComponent } from './components/all-series/all-series.component';
 
 export const routes: Routes = [
   {
@@ -22,6 +23,10 @@ export const routes: Routes = [
       {
         path: 'allComics',
         component: AllComicsComponent,
+      },
+      {
+        path: 'allSeries',
+        component: AllSeriesComponent,
       },
       {
         path: 'comics/:comicId',

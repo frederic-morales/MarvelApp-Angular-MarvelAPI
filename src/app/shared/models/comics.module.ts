@@ -1,6 +1,6 @@
 import { Character } from './character.module';
 
-export interface Comic extends Character {
+export interface Comic extends Omit<Character, 'description'> {
   title: string;
   resourceURI: string;
   characters: {
@@ -21,4 +21,4 @@ export interface Comic extends Character {
   ];
 }
 
-export interface Serie extends Comic {}
+export interface Serie extends Omit<Comic, 'prices'> {}
